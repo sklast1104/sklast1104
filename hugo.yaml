@@ -52,7 +52,7 @@ params:
     avatar:
       enabled: true
       local: true
-      src: img/avatar.png
+      src: img/avatar.jpg
 
   # 글 목록 설정
   article:
