@@ -47,7 +47,6 @@ params:
 
   # 사이드바 설정
   sidebar:
-    emoji: "💻"
     subtitle: "클라이언트 개발자"
     avatar:
       enabled: true
