@@ -1,90 +1,95 @@
 baseURL: "https://sklast1104.github.io/sklast1104/"
 languageCode: ko-KR
-title: "Dev Blog"  # 블로그 제목
-theme: PaperMod
+title: "jm's Dev Blog"
+theme: Stack
 
 # 빌드 설정
 enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
 enableEmoji: true
 
-# 한국어 설정
+# 한글 날짜 포맷
 defaultContentLanguage: ko
 
-# 코드 하이라이팅
-pygmentsUseClasses: true
+# 퍼머링크 설정
+permalinks:
+  posts: /p/:slug/
+  pages: /:slug/
 
 # 메뉴
 menu:
-  main:
-    - identifier: posts
-      name: Posts
-      url: /posts/
-      weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 20
-    - identifier: archives
-      name: Archive
-      url: /archives/
-      weight: 30
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 40
+  main: []
+  social:
+    - identifier: github
+      name: GitHub
+      url: https://github.com/sklast1104
+      params:
+        icon: brand-github
 
-# 출력 포맷 (검색 기능용)
+# 출력 포맷
 outputs:
   home:
     - HTML
     - RSS
     - JSON
 
-# PaperMod 테마 설정
+# Stack 테마 설정
 params:
-  env: production
-  title: "Dev Blog"
-  description: "개발 블로그"
-  author: "jm"
+  # 사이트 기본 설정
+  mainSections:
+    - posts
+  featuredImageField: image
+  rssFullContent: true
 
-  # 다크모드 토글
-  defaultTheme: auto
-  disableThemeToggle: false
+  # 날짜 포맷
+  dateFormat:
+    published: 2006-01-02
+    lastUpdated: 2006-01-02 15:04
 
-  # 홈페이지 모드 (profile, home, cards 중 선택)
-  homeInfoParams:
-    Title: "Welcome"
-    Content: "클라이언트 개발자의 기술 블로그"
+  # 사이드바 설정
+  sidebar:
+    emoji: "💻"
+    subtitle: "클라이언트 개발자"
+    avatar:
+      enabled: true
+      local: true
+      src: img/avatar.png
 
-  # 소셜 아이콘
-  socialIcons:
-    - name: github
-      url: "https://github.com/sklast1104"
-    # - name: linkedin
-    #   url: "https://linkedin.com/in/YOUR_USERNAME"
+  # 글 목록 설정
+  article:
+    math: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: false
 
-  # 포스트 페이지 설정
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: true
-  ShowToc: true
-  TocOpen: false
+  # 댓글 (필요시 활성화)
+  comments:
+    enabled: false
 
-  # 검색 설정
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+  # 위젯 설정 (사이드바)
+  widgets:
+    homepage:
+      - type: search
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 20
+    page:
+      - type: toc
+
+  # 컬러 스킴
+  colorScheme:
+    toggle: true
+    default: auto
+
+  # 이미지 처리
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
 
 # 마크다운 설정
 markup:
@@ -92,7 +97,18 @@ markup:
     codeFences: true
     guessSyntax: true
     lineNos: true
-    style: monokai
+    noClasses: false
   goldmark:
     renderer:
-      unsafe: true  # Mermaid 등 HTML 허용
+      unsafe: true
+
+# 관련 포스트
+related:
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 200

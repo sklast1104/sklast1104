@@ -1,15 +1,20 @@
 ---
 title: "첫 번째 포스트: Hugo 블로그 시작하기"
+slug: "hello-world"
 date: 2025-01-22
 draft: false
-tags: ["Hugo", "Blog", "시작하기"]
-categories: ["블로그"]
-summary: "Hugo와 PaperMod 테마로 기술 블로그를 시작합니다."
+tags:
+  - Hugo
+  - Blog
+  - 시작하기
+categories:
+  - 블로그
+description: "Hugo와 Stack 테마로 기술 블로그를 시작합니다."
 ---
 
 ## 블로그 시작
 
-Hugo와 PaperMod 테마를 사용해 기술 블로그를 시작했습니다.
+Hugo와 Stack 테마를 사용해 기술 블로그를 시작했습니다.
 
 ## 왜 Hugo인가?
 
@@ -28,15 +33,6 @@ public class HelloWorld : MonoBehaviour
         Debug.Log("Hello, World!");
     }
 }
-```
-
-## Mermaid 다이어그램
-
-```mermaid
-graph LR
-    A[글 작성] --> B[Git Push]
-    B --> C[GitHub Actions]
-    C --> D[블로그 배포]
 ```
 
 ## 이미지 넣는 방법
