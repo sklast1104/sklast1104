@@ -98,8 +98,13 @@ markup:
     lineNos: true
     noClasses: false
   goldmark:
+    extensions:
+      typographer: false
     renderer:
       unsafe: true
+    parser:
+      autoHeadingID: true
+      autoHeadingIDType: github
 
 # 관련 포스트
 related:

@@ -11,7 +11,7 @@ tags:
 categories:
   - Computer Graphics
 description: "길티기어 Xrd/Strive의 내부 라인이 깨지지 않는 진짜 이유. UV 트릭과 무게중심 좌표(Barycentric Coordinates) 역분석."
-image: "/images/posts/guilty-gear-rendering/analysis-diagram.png"
+image: "images/posts/guilty-gear-rendering/analysis-diagram.png"
 ---
 
 > **참고**: 이 글은 GDC 2015 발표 *"Guilty Gear Xrd's Art Style"*과 최근 수행한 역분석(Reverse Engineering) 결과를 바탕으로 재구성했습니다.
@@ -73,7 +73,7 @@ image: "/images/posts/guilty-gear-rendering/analysis-diagram.png"
 자, 여기서 조금 더 깊게 들어가 보죠.
 제가 최근에 이 기법을 역분석하면서 학위 논문 마냥 뜯어본 내용이 있는데, 사실 이 기법이 가능한 진짜 이유는 **GPU가 삼각형을 그리는 방식** 그 자체에 있습니다.
 
-![라인 렌더링 역분석 데이터](/images/posts/guilty-gear-rendering/analysis-diagram.png)
+![라인 렌더링 역분석 데이터](images/posts/guilty-gear-rendering/analysis-diagram.png)
 *직접 분석해본 라인 렌더링의 데이터 흐름입니다. 중앙의 보간(Interpolation) 과정이 보이시나요?*
 
 ### 삼각형 안에서 일어나는 마법
