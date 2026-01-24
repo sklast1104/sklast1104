@@ -1,7 +1,7 @@
 ---
 title: "[그래픽스] 길티기어의 '미친' 라인 렌더링: 텍스처가 아니라 수학이다"
 slug: "guilty-gear-rendering"
-date: 2026-01-25
+date: 2026-01-24
 draft: false
 tags:
   - Graphics
