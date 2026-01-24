@@ -1,7 +1,7 @@
 ---
 title: "[그래픽스] 길티기어 Xrd의 렌더링 기법 분석: 텍스처 없이 선명한 라인 그리기"
 slug: "guilty-gear-rendering"
-date: 2026-01-25
+date: 2026-01-24
 draft: false
 tags:
   - Graphics
