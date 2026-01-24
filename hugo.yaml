@@ -55,7 +55,7 @@ params:
 
   # 글 목록 설정
   article:
-    math: false
+    math: true
     toc: true
     readingTime: true
     license:
