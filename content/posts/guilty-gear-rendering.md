@@ -31,7 +31,7 @@ description: "GDC 2015 발표를 기반으로 한 길티기어 Xrd 카툰 렌더
 
 ## 2. 캐릭터 메시 구성
 
-![캐릭터 메시 구성](/images/posts/guilty-gear-rendering/character-meshes.png)
+![캐릭터 메시 구성](images/posts/guilty-gear-rendering/character-meshes.png)
 *GDC 2015 슬라이드: Character Meshes*
 
 ### 하이폴리 메시
@@ -54,7 +54,7 @@ description: "GDC 2015 발표를 기반으로 한 길티기어 Xrd 카툰 렌더
 
 ## 3. 셀 셰이딩: 명암의 이진화
 
-![셀 셰이딩](/images/posts/guilty-gear-rendering/cel-shading.png)
+![셀 셰이딩](images/posts/guilty-gear-rendering/cel-shading.png)
 *GDC 2015 슬라이드: Getting the Shading right*
 
 ### 일반 셰이딩 vs 셀 셰이딩
@@ -91,7 +91,7 @@ else
 
 ## 4. 버텍스 컬러를 이용한 AO 제어
 
-![버텍스 컬러 AO](/images/posts/guilty-gear-rendering/vertex-color-ao.png)
+![버텍스 컬러 AO](images/posts/guilty-gear-rendering/vertex-color-ao.png)
 *GDC 2015 슬라이드: Controlling the Threshold*
 
 ### 텍스처 AO의 한계
@@ -122,7 +122,7 @@ else
 
 ## 5. 내부 라인(Inner Line): UV 트릭
 
-![내부 라인](/images/posts/guilty-gear-rendering/inner-line.png)
+![내부 라인](images/posts/guilty-gear-rendering/inner-line.png)
 *GDC 2015 슬라이드: Character's Inner Line*
 
 ### 문제 정의
