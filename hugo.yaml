@@ -61,9 +61,21 @@ params:
     license:
       enabled: false
 
-  # 댓글 (필요시 활성화)
+  # 댓글 (Giscus)
   comments:
-    enabled: false
+    enabled: true
+    provider: giscus
+    giscus:
+      repo: sklast1104/sklast1104
+      repoID: R_kgDOQ--IZQ
+      category: General
+      categoryID: DIC_kwDOQ--IZc4C1ZWw
+      mapping: pathname
+      reactionsEnabled: 1
+      emitMetadata: 0
+      inputPosition: bottom
+      lightTheme: light
+      darkTheme: dark
 
   # 위젯 설정 (사이드바)
   widgets:
