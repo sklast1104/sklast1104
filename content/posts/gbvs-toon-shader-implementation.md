@@ -68,14 +68,14 @@ Arc System Works 스타일에서 가장 중요한 것은 **ILM(Illumination Map)
 
 ### Base Map (디퓨즈 컬러)
 
-![Base Map](/images/posts/gbvs-toon-shader-implementation/BaseMap.png)
+![Base Map](images/posts/gbvs-toon-shader-implementation/BaseMap.png)
 *Base Map: 기본 색상 정보*
 
 베이스 맵은 일반적인 디퓨즈 텍스처와 비슷하지만, **세부 묘사가 거의 없다**는 것이 특징이다. 옷의 주름이나 디테일이 텍스처에 그려져 있지 않음. 순수하게 "이 영역은 무슨 색인가"만 알려주는 색상 팔레트 역할.
 
 ### Shadow Map (SSS)
 
-![Shadow SSS](/images/posts/gbvs-toon-shader-implementation/Shadow(SSS).png)
+![Shadow SSS](images/posts/gbvs-toon-shader-implementation/Shadow(SSS).png)
 *SSS Map: 그림자 영역 색상*
 
 그림자가 질 때 Base Map 대신 사용되는 색상. 보통 Base보다 채도가 높거나 색조가 다르다. "차가운 그림자" 또는 "따뜻한 그림자"를 표현할 수 있음.
@@ -96,7 +96,7 @@ float inner_line = ilm_map.a;               // A: 내부 라인 마스크
 
 ### R 채널 - 스페큘러 강도
 
-![ILM R Channel](/images/posts/gbvs-toon-shader-implementation/ILM-R.png)
+![ILM R Channel](images/posts/gbvs-toon-shader-implementation/ILM-R.png)
 *ILM R: 스페큘러 강도. 밝을수록 반사광이 강함*
 
 - **밝은 부분**: 금속, 벨트 버클, 광택 있는 옷감
@@ -105,7 +105,7 @@ float inner_line = ilm_map.a;               // A: 내부 라인 마스크
 
 ### G 채널 - 그림자 임계값
 
-![ILM G Channel](/images/posts/gbvs-toon-shader-implementation/ILM-G.png)
+![ILM G Channel](images/posts/gbvs-toon-shader-implementation/ILM-G.png)
 *ILM G: 그림자 임계값. 어두울수록 항상 그림자*
 
 - **밝은 부분**: 그림자가 잘 안 짐 (빛을 잘 받는 곳으로 설정)
@@ -119,7 +119,7 @@ float diffuse_control = ilm_map.g * 2.0 - 1.0;
 
 ### B 채널 - 스페큘러 크기 / 외곽선
 
-![ILM B Channel](/images/posts/gbvs-toon-shader-implementation/ILM-B.png)
+![ILM B Channel](images/posts/gbvs-toon-shader-implementation/ILM-B.png)
 *ILM B: 스페큘러 크기 및 외곽선 제어*
 
 - **밝은 부분**: 작은 하이라이트, 얇은 외곽선
@@ -127,7 +127,7 @@ float diffuse_control = ilm_map.g * 2.0 - 1.0;
 
 ### A 채널 - 내부 라인 마스크
 
-![ILM A Channel](/images/posts/gbvs-toon-shader-implementation/ILM-A.png)
+![ILM A Channel](images/posts/gbvs-toon-shader-implementation/ILM-A.png)
 *ILM A: 내부 라인 마스크. 어두운 부분에 라인 렌더링*
 
 - **밝은 부분 (1.0)**: 라인 없음
@@ -140,7 +140,7 @@ float diffuse_control = ilm_map.g * 2.0 - 1.0;
 
 ### R 채널 - 그림자 바이어스
 
-![Vertex R](/images/posts/gbvs-toon-shader-implementation/VertextR.png)
+![Vertex R](images/posts/gbvs-toon-shader-implementation/VertextR.png)
 *Vertex Color R: 그림자 바이어스/AO*
 
 버텍스 컬러의 R 채널은 그림자가 얼마나 쉽게 지는지를 제어한다:
@@ -160,7 +160,7 @@ float ao = IN.vertex_color.r;
 
 ### Step 1: Toon Shadow
 
-![Toon Shadow](/images/posts/gbvs-toon-shader-implementation/ToonShadow.png)
+![Toon Shadow](images/posts/gbvs-toon-shader-implementation/ToonShadow.png)
 *Toon Shadow: Half-Lambert 기반 이진화 그림자*
 
 가장 기본적인 셀 셰이딩. 노멀과 라이트 방향의 내적(NdotL)에 Half-Lambert를 적용한 후 임계값으로 이진화:
@@ -181,7 +181,7 @@ half toon_diffuse = saturate((lambert_term - _ToonThresHold) * _ToonHardness);
 
 ### Step 2: Diffuse
 
-![Diffuse](/images/posts/gbvs-toon-shader-implementation/Diffuse.png)
+![Diffuse](images/posts/gbvs-toon-shader-implementation/Diffuse.png)
 *Diffuse: Base Map + SSS Map 적용*
 
 텍스처를 적용한 상태. 밝은 면은 Base Map, 그림자 면은 SSS Map 색상 사용:
@@ -192,7 +192,7 @@ half3 final_diffuse = lerp(sss_color, base_color, toon_diffuse) * mainLight.colo
 
 ### Step 3: Diffuse + Inner Line
 
-![Diffuse + Inner Line](/images/posts/gbvs-toon-shader-implementation/Diffuse+InnerLine.png)
+![Diffuse + Inner Line](images/posts/gbvs-toon-shader-implementation/Diffuse+InnerLine.png)
 *Inner Line 추가: 옷 주름과 디테일 표현*
 
 ILM A 채널과 Detail Map을 사용하여 내부 라인 렌더링:
@@ -209,7 +209,7 @@ half3 final_line = inner_line_color * inner_line_color * detail_color;
 
 ### Step 4: Diffuse + Inner Line + Specular
 
-![Diffuse + Inner Line + Specular](/images/posts/gbvs-toon-shader-implementation/Diffuse+Inner+Specular.png)
+![Diffuse + Inner Line + Specular](images/posts/gbvs-toon-shader-implementation/Diffuse+Inner+Specular.png)
 *Specular 추가: 금속 광택 표현*
 
 ILM R 채널로 스페큘러 강도, B 채널로 크기를 제어:
@@ -232,7 +232,7 @@ half3 final_spec = toon_spec * spec_color * spec_intensity;
 
 ### Step 5: Full Shader
 
-![Full Shader](/images/posts/gbvs-toon-shader-implementation/FullShader.png)
+![Full Shader](images/posts/gbvs-toon-shader-implementation/FullShader.png)
 *Full Shader: 림라이트, 외곽선 등 모든 요소 추가*
 
 림라이트 계산 (카메라 공간 기반):
@@ -259,7 +259,7 @@ final_color *= final_line;         // 내부 라인 (곱하기)
 
 ### Step 6: Post Processing
 
-![Tonemapping + Bloom](/images/posts/gbvs-toon-shader-implementation/Tonemapping+Bloom.png)
+![Tonemapping + Bloom](images/posts/gbvs-toon-shader-implementation/Tonemapping+Bloom.png)
 *최종: 톤매핑 + 블룸 포스트 프로세싱*
 
 마지막으로 URP 포스트 프로세싱 적용:
