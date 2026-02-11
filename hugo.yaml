@@ -4,6 +4,7 @@ title: "jm's Dev Blog"
 theme: Stack
 
 # 빌드 설정
+buildFuture: true
 enableRobotsTXT: true
 enableEmoji: true
 
