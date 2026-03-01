@@ -15,7 +15,7 @@
 
 ## 🎮 Personal Projects
 
-### ZZZ 모작 — ARPG 전투 시스템 ([영상](https://youtu.be/_DiQzDzn-8o))
+### ZZZ 모작 — ARPG 전투 시스템 ([소스](https://github.com/sklast1104/ZZZ_CoreCode) · [영상](https://youtu.be/_DiQzDzn-8o))
 
 Timeline 기반 ActionCtrl, 코드 드리븐 애니메이션, 12종 커스텀 NotifyState, 캐릭터 스위칭, 궁극기 연출
 
